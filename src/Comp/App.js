@@ -20,25 +20,25 @@ function App(){
   //   }
   //   })
   // }, [notes])
+  const middleWare = (note ,e ) => {
+              let array = [];
+              let val = note.text.split(" ");
+              for (let i = 0; i < val.length; i++) {
+                    if (val[i].charAt(0) === "#") {
+                        array.push(val[i]);
+                    }
+              }
+
+              for (let i = 0; i < array.length; i++) {
+              if (e.target[0].value === array[i]) {
+                  return true;
+                }
+              }
+              
+  }
   const filterByTags = (e) => {
     e.preventDefault()
-    let arr = notes.filter((note) => {
-      let array = [];
-
-      let val = note.text.split(" ");
-      for (let i = 0; i < val.length; i++) {
-            if (val[i].charAt(0) === "#") {
-                array.push(val[i]);
-            }
-      }
-
-      for (let i = 0; i < array.length; i++) {
-      if (e.target[0].value === array[i]) {
-          return true;
-        }
-      }
-      
-    })
+    let arr = notes.filter((note) => middleWare(note,e))
     let result = ''
     for (var i = 0; i < arr.length; i++) {
       result += `<div className='SearchRes'>Note with id ${arr[i].id}  :  ${arr[i].text} </div><br>`

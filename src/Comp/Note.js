@@ -5,11 +5,8 @@ const Note = (props) => {
         props.setNotes(props.notes.filter((el) => el.id !== props.note.id))
     }
     const editHandler = () => {
-        props.notes.map((el) => {
-            if (el.id === props.note.id) {
-                return el.text = props.text
-            }
-        })
+        props.notes.filter((el) => el.id === props.note.id)
+            .map((el) =>  el.text = props.text)
         props.setText("")
     }
 
