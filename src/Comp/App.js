@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Main from './Main'
 import Notes from './Notes' 
 import Tags from './Tags'
